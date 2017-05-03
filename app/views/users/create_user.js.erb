@@ -1,0 +1,2 @@
+console.log("create.js.erb file");
+$("#result").replaceWith("<%= raw (CodeRay.scan(JSON.neat_generate(@result), :json).div(:break_lines => true)) %>");

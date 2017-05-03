@@ -3,8 +3,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-ruby '2.4.1'
-gem 'rails', '~> 5.0.2'
+gem 'rails', '~> 5.0'
 gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -28,6 +27,8 @@ gem 'high_voltage'
 gem 'simple_form'
 group :development do
   gem 'better_errors'
+  # This gem can make it easy to inspect the state of the server during errors but can slow things down:
+  # gem 'binding_of_caller'
   gem 'capistrano', '~> 3.0.1'
   gem 'capistrano-bundler'
   gem 'capistrano-rails', '~> 1.1.0'
@@ -36,3 +37,19 @@ group :development do
   gem 'hub', :require=>nil
   gem 'rails_layout'
 end
+
+# services
+gem 'dotenv-rails'
+gem 'global'
+gem 'rest-client'
+
+
+# http calls
+gem 'excon'
+
+# Colored logging
+gem 'awesome_print'
+gem 'neatjson'
+gem 'coderay'
+gem 'rails_semantic_logger'
+gem 'shog'

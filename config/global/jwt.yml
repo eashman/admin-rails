@@ -1,0 +1,11 @@
+development:
+  expiration_timeout: <%= 5.years %>
+
+test:
+  expiration_timeout: <%= 1.minute %>
+
+staging:
+  expiration_timeout: <%= 1.month %>
+
+production:
+  expiration_timeout: <%= 1.month %>
