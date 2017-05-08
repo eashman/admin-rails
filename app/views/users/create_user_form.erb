@@ -1,35 +1,34 @@
 <div class="container">
-
-  <%= form_tag('create_user',  :method => :post) do %>
       <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group">
-            <%= label_tag "Email", nil, class: "control-label" %>
-            <%= text_field_tag :email, nil, :class => "form-control first_input"  %>
-          </div>
-          <div class="form-group">
-            <%= label_tag "First Name", nil, :class => "control-label" %>
-            <%= text_field_tag :first_name, nil, :class => "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= label_tag "Middle Name/Initial (without period)", nil, :class => "control-label" %>
-            <%= text_field_tag :middle_name, nil, :class => "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= label_tag "Last Name", nil, :class => "control-label" %>
-            <%= text_field_tag :last_name, nil, :class => "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= label_tag "Degrees", nil, :class => "control-label" %>
-            <%= text_field_tag :degrees, nil, :class => "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= submit_tag "Create", :class => "btn btn-primary" %>
-          </div>
+        <div class="col-sm-6 leftthing">
+          <%= form_tag( { :controller => :users, :action => :create_user }, { :method => :post, :remote => true }) do %>
+            <div class="form-group">
+              <%= label_tag "Email", nil, class: "control-label" %>
+              <%= text_field_tag :email, nil, :class => "form-control first_input"  %>
+            </div>
+            <div class="form-group">
+              <%= label_tag "First Name", nil, :class => "control-label" %>
+              <%= text_field_tag :first_name, nil, :class => "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= label_tag "Middle Name/Initial (without period)", nil, :class => "control-label" %>
+              <%= text_field_tag :middle_name, nil, :class => "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= label_tag "Last Name", nil, :class => "control-label" %>
+              <%= text_field_tag :last_name, nil, :class => "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= label_tag "Degrees", nil, :class => "control-label" %>
+              <%= text_field_tag :degrees, nil, :class => "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= submit_tag "Create", :class => "btn btn-primary", :disable_with => "Adding..." %>
+            </div>
+          <% end %>
+        </div>
+        <div id="result" class="col-sm-6 terminal">
+
         </div>
       </div>
-  <% end %>
-</div>
-<div id="result">
-
 </div>

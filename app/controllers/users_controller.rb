@@ -14,7 +14,10 @@ require 'json'
       @result = JSON.parse(api_call.to_s)
       @result["code"] = api_call.code
       @result["user"].delete("token")
-      render 'users/user_result'
+      respond_to do |format|
+        format.js {render layout: false}
+      end
+      #render 'users/user_result'
       #render inline: "<%= JSON.neat_generate(@result) %>"
     end
 
