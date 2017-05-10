@@ -1,7 +1,16 @@
 
 .result {
-  background-color: black;
-  height: 100%;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    color: cyan;
+    border-color: black;
+}
+.fixed-panel {
+    background-color: black;
+    min-height: 400px;
+    max-height: 400px;
+    overflow-y: scroll;
 }
 
 pre {

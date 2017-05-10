@@ -1,10 +1,13 @@
 require 'neatjson'
 require 'json'
 
-  class UsersController < ApplicationController
-    #before_filter :authenticate_admin
+class UsersController < ApplicationController
+  #before_filter :authenticate_admin
 
-    def new_user
+  #before_filter :authenticate, :except => [:index, :show]
+  before_filter :authenticate
+
+  def new_user
       render 'users/create_user_form'
     end
 
@@ -15,6 +18,10 @@ require 'json'
     def create_user
       api_call = create_alumni_user(params)
       logger.info(api_call.ai)
+
+      formatter = Rouge::Formatters::HTML.new
+      lexer = Rouge::Lexers::JSON.new
+      @jsresult = formatter.format(lexer.lex(api_call))
       @result = JSON.parse(api_call.to_s)
       @result["code"] = api_call.code
       @result["user"].delete("token")

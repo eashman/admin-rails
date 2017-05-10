@@ -1,9 +1,10 @@
 require 'pty'
 
-
 class ViewerController < ApplicationController
 
   include ActionController::Live
+
+  before_filter :authenticate
 
   def index
 

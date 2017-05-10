@@ -164,6 +164,11 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rouge (2.0.7)
+    rouge-rails (0.2.1)
+      actionview
+      railties
+      rouge
     sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -246,6 +251,8 @@ DEPENDENCIES
   rails_layout
   rails_semantic_logger
   rest-client
+  rouge
+  rouge-rails
   sass-rails (~> 5.0)
   shog
   simple_form

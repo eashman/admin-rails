@@ -53,3 +53,7 @@ gem 'neatjson'
 gem 'coderay'
 gem 'rails_semantic_logger'
 gem 'shog'
+
+gem 'rouge'
+gem 'rouge-rails'
+
