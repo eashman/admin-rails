@@ -1,8 +1,0 @@
-development: &default
-  certkey: 1FDzeny0hp_jnlUTJFHtt9A6zXuk91W490OJkauph2cw
-
-staging:
-  <<: *default
-
-production:
-  <<: *default

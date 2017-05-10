@@ -1,0 +1,11 @@
+console.log("get_user_token.js.erb file");
+$('#resultpane').css('visibility', 'visible');
+<% if @result['token'].nil? %>
+  $("#result").html("<b>No User with that Email Address in Database</b>");
+<% else %>
+$("#result").html("<b>Link</b>" +
+    "<br/><a href='https://<%= @result['url'] %>/login?token=<%= @result['token'] %>' target='_new'>Login to Hub As User</a>" +
+    "<br/><hr/><div id='token_print'><b>Token</b><br/><input size=40 id='token' value='<%= @result['token'] %>'>" +
+    "<button class='btn' data-clipboard-target='#token'>Copy</button></div>"
+);
+<% end %>

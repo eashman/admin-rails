@@ -1,17 +1,17 @@
 # Server Options
 # ===================
-server 'stage-app.k2practice.com', user: 'deploy', roles: %w{app db web}
-set :deploy_to, '/home/deploy/stage-util'
+server 'qa-util.k2practice.com', user: 'deploy', roles: %w(app db web)
+set :deploy_to, '/home/deploy/qa-util'
 
 # Environment Options
 # ===================
-set :branch, 'staging'
-set :stages, 'staging'
-set :rails_env, 'staging'
+set :branch, 'qa'
+set :stages, 'qa'
+set :rails_env, 'qa'
 
 # Build Options
 # ===================
-set :bundle_without, (fetch(:bundle_without, []) - %w(staging)).join(' ')
+set :bundle_without, (fetch(:bundle_without, []) - %w(qa)).join(' ')
 
 # Custom SSH Options
 # ===================

@@ -1,10 +1,45 @@
 
-.terminal {
+.result {
   background-color: black;
-  color: cyan;
   height: 100%;
 }
 
+pre {
+    background-color: black;
+}
+
 .leftthing {
-    background-color: blue;
+}
+
+.bottomthing {
+    height: 800px;
+}
+
+.backgroundAnimated{
+    background-color: #34e81e !important;
+    background-image:none !important;
+    -webkit-transition: background-color 5000ms linear;
+    -moz-transition: background-color 5000ms linear;
+    -o-transition: background-color 5000ms linear;
+    -ms-transition: background-color 5000ms linear;
+    transition: background-color 5000ms linear;
+    -webkit-animation-direction: alternate; /* Chrome, Safari, Opera */
+    animation-direction: alternate;
+
+    -webkit-animation-iteration-count: 2; /* Chrome, Safari, Opera */
+    animation-iteration-count: 2;
+}
+.nextBackgroundAnimated{
+    background-color: white !important;
+    background-image:none !important;
+    -webkit-transition: background-color 5000ms linear;
+    -moz-transition: background-color 5000ms linear;
+    -o-transition: background-color 5000ms linear;
+    -ms-transition: background-color 5000ms linear;
+    transition: background-color 5000ms linear;
+    -webkit-animation-direction: alternate; /* Chrome, Safari, Opera */
+    animation-direction: alternate;
+
+    -webkit-animation-iteration-count: 2; /* Chrome, Safari, Opera */
+    animation-iteration-count: 2;
 }

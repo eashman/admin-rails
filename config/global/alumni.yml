@@ -1,38 +1,54 @@
 development: &default
   token: 46f17cdb2b97ac3398efdd9d55bdcababcef8a603d70abd93b647c6922796b77c188ddcc32df930ebd0024ae8da61be14d7b22de5d664069ca69b76a2b9a5024
-  login: https://int-alumni.k2practice.com/login
-  redir_url: http://localhost:3000
-  system_url: https://int-alumni.k2practice.com
-  access_token: <%= ENV["INT_SYSTEM_ACCESS_TOKEN"] %>
-  portal_access_token: <%= ENV["PORTAL_ACCESS_TOKEN"] %>
+  login: https://qa-alumni.k2practice.com/login
+  system_url: https://qa-alumni.k2practice.com
+  portal_url: https://qa-hub.k2practice.com
+  access_token: <%= ENV["STAGE_SYSTEM_ACCESS_TOKEN"] %>
+  prod_access_token: <%= ENV["PROD_SYSTEM_ACCESS_TOKEN"] %>
 
-test:
+
+int:
   <<: *default
-#
-#staging:
-#  token: 46f17cdb2b97ac3398efdd9d55bdcababcef8a603d70abd93b647c6922796b77c188ddcc32df930ebd0024ae8da61be14d7b22de5d664069ca69b76a2b9a5024
-#  login: https://stage-alumni.k2practice.com/login
-#  redir_url: https://stage-quest.k2practice.com
-#  system_url: https://stage-alumni.k2practice.com
-#  access_token: 8674272aa3767cd7362307a49d0501f6728aaec0a1f45bd858190b3222b96e109c625bcff8567b9eefb4d20afaa7b758f01e76609e14a3f451435b20df2d337f
-#  portal_access_token: TIV76nUOqADpApznrn9Q0RnPU2kPHnDyeFwnbLlS4ME
-
-staging:
   token: 46f17cdb2b97ac3398efdd9d55bdcababcef8a603d70abd93b647c6922796b77c188ddcc32df930ebd0024ae8da61be14d7b22de5d664069ca69b76a2b9a5024
-  login: https://alumni.k2practice.com/login
-  redir_url: https://quest.k2practice.com
-  system_url: https://alumni.k2practice.com
-  access_token: <%= ENV["INT_SYSTEM_ACCESS_TOKEN"] %>
-  portal_access_token: <%= ENV["PORTAL_ACCESS_TOKEN"] %>
+  login: https://stage-alumni.k2practice.com/login
+  system_url: https://int-alumni.k2practice.com
+  portal_url: https://int-hub.k2practice.com
+  access_token: <%= ENV["STAGE_SYSTEM_ACCESS_TOKEN"] %>
+  prod_access_token: <%= ENV["PROD_SYSTEM_ACCESS_TOKEN"] %>
 
+qa:
+  <<: *default
+  token: 46f17cdb2b97ac3398efdd9d55bdcababcef8a603d70abd93b647c6922796b77c188ddcc32df930ebd0024ae8da61be14d7b22de5d664069ca69b76a2b9a5024
+  login: https://qa-alumni.k2practice.com/login
+  system_url: https://qa-alumni.k2practice.com
+  portal_url: https://qa-hub.k2practice.com
+  access_token: <%= ENV["STAGE_SYSTEM_ACCESS_TOKEN"] %>
+  prod_access_token: <%= ENV["PROD_SYSTEM_ACCESS_TOKEN"] %>
 
+demo:
+  <<: *default
+  token: 46f17cdb2b97ac3398efdd9d55bdcababcef8a603d70abd93b647c6922796b77c188ddcc32df930ebd0024ae8da61be14d7b22de5d664069ca69b76a2b9a5024
+  login: https://demo-alumni.k2practice.com/login
+  system_url: https://demo-alumni.k2practice.com
+  portal_url: https://demo-hub.k2practice.com
+  access_token: <%= ENV["STAGE_SYSTEM_ACCESS_TOKEN"] %>
+  prod_access_token: <%= ENV["PROD_SYSTEM_ACCESS_TOKEN"] %>
+
+stage:
+  <<: *default
+  token: 46f17cdb2b97ac3398efdd9d55bdcababcef8a603d70abd93b647c6922796b77c188ddcc32df930ebd0024ae8da61be14d7b22de5d664069ca69b76a2b9a5024
+  login: https://stage-alumni.k2practice.com/login
+  system_url: https://stage-alumni.k2practice.com
+  portal_url: https://stage-hub.k2practice.com
+  access_token: <%= ENV["STAGE_SYSTEM_ACCESS_TOKEN"] %>
+  prod_access_token: <%= ENV["PROD_SYSTEM_ACCESS_TOKEN"] %>
 
 production:
   token: 46f17cdb2b97ac3398efdd9d55bdcababcef8a603d70abd93b647c6922796b77c188ddcc32df930ebd0024ae8da61be14d7b22de5d664069ca69b76a2b9a5024
   login: https://alumni.k2practice.com/login
   redir_url: https://quest.k2practice.com
   system_url: https://alumni.k2practice.com
-  access_token: <%= ENV["SYSTEM_ACCESS_TOKEN"] %>
-  portal_access_token: <%= ENV["PORTAL_ACCESS_TOKEN"] %>
+  access_token: <%= ENV["STAGE_SYSTEM_ACCESS_TOKEN"] %>
+  prod_access_token: <%= ENV["PROD_SYSTEM_ACCESS_TOKEN"] %>
 
 
