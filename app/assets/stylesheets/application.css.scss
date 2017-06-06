@@ -14,3 +14,24 @@
  *= require_self
  */
 @import "rouge";
+
+#log {
+  display: block;
+  /* enough padding to clear the toolbar.. is there a better way to do this? */
+  padding-bottom: 2.1em;
+  font-size: 11pt;
+  background: inherit;
+  overflow: hidden;
+  color: aqua;
+  font-family: DejaVu Sans Mono, fixed;
+}
+
+.cmd {color: #F7A63D; }
+
+.message {
+  margin: 0.1em 0;
+}
+
+.message td {
+  vertical-align: top;
+}

@@ -2,13 +2,14 @@
   <!-- Page Heading -->
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Get A Token / Impersonate<br/>
-        <small>Will Generate Link and Token for Another User</small>
+      <h1 class="page-header">User Account Controls<br/>
+        <small>Do Things on A User's Behalf</small>
       </h1>
     </div>
   </div>
       <div class="row">
         <div class="col-sm-6 leftthing">
+          <h2>Get Token or Impersonate User</h2>
           <%= form_tag( { :controller => :users, :action => :get_user_token }, { :method => :post, :remote => true }) do %>
               <div class="form-group">
                 <%= label_tag "Environment: ", nil, class: "control-label" %>
@@ -21,6 +22,27 @@
             </div>
               <div class="form-group">
                 <%= submit_tag "Get Token", :id => 'sub', :class => "btn btn-primary", :disable_with => "Looking Up..." %>
+              </div>
+          <% end %>
+        </div>
+        <div class="col-sm-6 leftthing">
+          <h2>Submit Assessment For User</h2>
+          <%= form_tag( { :controller => :users, :action => :submit_assessment}, { :method => :post, :remote => true }) do %>
+              <div class="form-group">
+                <%= label_tag "Environment: ", nil, class: "control-label" %>
+                <% environments = [['QA', 'qa'], ['Staging', 'stage'], ['Production', 'prod']] %>
+                <%= select_tag(:environment, options_for_select(environments), :class => 'select') %>
+              </div>
+              <div class="form-group">
+                <%= label_tag "Email", nil, class: "control-label" %>
+                <%= text_field_tag :email, nil, :class => "form-control first_input"  %>
+              </div>
+              <div class="form-group">
+                <%= label_tag "Context_ID GUID", nil, class: "control-label" %>
+                <%= text_field_tag :guid, nil, :class => "form-control first_input"  %>
+              </div>
+              <div class="form-group">
+                <%= submit_tag "Submit Assessment", :id => 'sub', :class => "btn btn-primary", :disable_with => "Sending.." %>
               </div>
           <% end %>
         </div>

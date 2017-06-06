@@ -22,7 +22,8 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  <<: *default
+ # <<: *default
+  adapter: sqlite3
   database: adminutils_development
 
   # The specified database role being used to connect to postgres.

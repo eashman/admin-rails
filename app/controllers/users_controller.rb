@@ -97,6 +97,48 @@ class UsersController < ApplicationController
       end
     end
 
+  def submit_assessment
+    api_call = get_user_token_call(params)
+    result = JSON.parse(api_call.to_s)
+    user_token = "Bearer: #{result["token"]}"
+    logger.info("User Token for #{params[:email]}: #{user_token}")
+    guid = params['guid']
+    system_env = params[:environment]
+    domain_url = "assess.k2practice.com/api/assessments/#{guid}/complete"
+    if system_env == 'prod'
+      url = 'https://' + domain_url
+    else
+      url = 'https://' + system_env + '-' + domain_url
+    end
+
+    logger.info("Sending to Assess: #{url}")
+    begin
+      assess_call = RestClient::Request.execute({
+                                           method: :post,
+                                           url: url,
+                                           headers: { 'Authorization': user_token, accept: :json, content_type: :json }
+                                       })
+    rescue RestClient::UnprocessableEntity => err
+      assess_error = JSON.parse(err.response)
+      @response = "Error: #{assess_error['code']} - #{assess_error['message']}"
+      logger.info("Error: #{ap JSON.parse(err.response)}")
+      return @response
+    rescue RestClient::Unauthorized, RestClient::Forbidden => err
+      assess_error = JSON.parse(err.response)
+      @response = "Error: #{assess_error['code']} - #{assess_error['message']}"
+      logger.info("Error: #{ap JSON.parse(err.response)}")
+      return @response
+    else
+      @response = "#{ap JSON.parse(assess_call)}"
+      logger.info @response
+      return "Result: #{@response}"
+    end
+
+    respond_to do |format|
+      format.js {render layout: false}
+    end
+  end
+
 
     private
 
