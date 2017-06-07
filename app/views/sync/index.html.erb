@@ -1,2 +1,63 @@
-<h1>Sync#index</h1>
-<p>Find me in app/views/sync/index.html.erb</p>
+<div class="container">
+  <!-- Page Heading -->
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Sync Content<br/>
+        <small>Sync Data Between System Environments</small>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 leftthing">
+      Click Button to Sync STAGING -> PRODUCTION<br/>
+      <input id="start_sync" type="button" value="start" onclick="sync('staging', 'production');" />
+
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 bottomthing">
+      <div class="panel panel-default" style="background: black; min-height: 900px; max-height: 900px;" id="resultpane">
+        <div id="log" class="panel-body log">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+
+    function add_content(bashOutput){
+        var html = ansi_up.ansi_to_html(bashOutput);
+        $('#log').append( html + '<br/>');
+//        $('#log').stop ().animate ({
+//            scrollTop: $('#log')[0].scrollHeight
+//        });
+        var scrolledWindow = $('#log').height() - $(window).height() + 100;
+        $(window).scrollTop(scrolledWindow);
+    }
+
+    // helper function: log message to screen
+    function log(msg) {
+        document.getElementById('log').textContent += msg + '\n';
+    }
+
+    function sync(source, dest) {
+        $("#log").html("");
+        log("Begin");
+        var source = new EventSource('http://localhost:3000/stream');
+        source.addEventListener('results', function (e) {
+          //  console.log('Received a message:', e.data);
+            // $("#users").append("<li>"+ $.parseJSON(e.data).name +"</li>");
+            html = JSON.parse(e.data)
+            //$('div').append( html + '<br/>');
+            add_content(html);
+
+        });
+        source.addEventListener('finished', function (e) {
+            console.log('Close:', e.data);
+            source.close();
+        });
+
+    }
+</script>

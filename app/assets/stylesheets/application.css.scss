@@ -20,8 +20,8 @@
   /* enough padding to clear the toolbar.. is there a better way to do this? */
   padding-bottom: 2.1em;
   font-size: 11pt;
-  background: inherit;
-  overflow: hidden;
+  background: black;
+  overflow: auto;
   color: aqua;
   font-family: DejaVu Sans Mono, fixed;
 }

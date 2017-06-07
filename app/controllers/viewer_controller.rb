@@ -76,7 +76,7 @@ class ViewerController < ApplicationController
         begin
 #         PTY.spawn( "lolcat -h" ) do |stdout, stdin, pid|
 
-            PTY.spawn( "cd /Users/eashman/src/sync-data; ./sync-answers.sh staging production" ) do |stdout, stdin, pid|
+            PTY.spawn( "cd /Users/eashman/src/sync-data; ./sync-all.sh staging production" ) do |stdout, stdin, pid|
             begin
               stdout.each { |line| sse.write( line, event: 'results') }
             rescue Errno::EIO

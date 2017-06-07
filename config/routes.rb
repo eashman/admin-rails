@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get 'viewer/index'
   get 'viewer/files'
 
-  get 'stream' => 'viewer#index_stream'
-  get 'watch' => 'viewer#watch'
+  get 'stream' => 'sync#index_stream'
+  get 'watch' => 'sync#watch'
   #root to: 'users#watch'
 
   scope '/users' do
